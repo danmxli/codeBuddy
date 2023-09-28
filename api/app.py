@@ -8,9 +8,10 @@ def search():
     ...
     if request.method == "POST":
         ...
-        # get query
+        # get links from query
         user_query = request.form.get("q")
-        list_links(user_query)
+        links = list_links(user_query)
+        print(links)
 
         return render_template("search.html")
     return render_template("search.html")
