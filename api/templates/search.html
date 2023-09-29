@@ -21,21 +21,33 @@
         <div class="response-div">
             <ul class="response-ul">
                 <li class="response-li">
-                    User asked "{{ query }}"
+                    <p class="response-show-query">
+                        User asked "{{ query }}"
+                    </p>
                 </li>
+                {% if dictionary.p %}
                 <li class="response-li">
-                    {% for i in dictionary.p %}
-                    <p>{{ i }}</p>
-                    {% endfor %}
+                    <p class="response-p">
+                        {% for i in dictionary.p %}
+                        {{ i }}<br />
+                        {% endfor %}
+                    </p>
                 </li>
+                {% endif %}
+                {% if dictionary.code %}
                 <li class="response-li">
                     {% for i in dictionary.code %}
-                    <code>{{ i }}</code>
+                    <p class="response-code">
+                        <code>{{ i }}</code>
+                    </p>
                     {% endfor %}
                 </li>
+                {% endif %}
                 <li class="response-li">
                     {% for i in dictionary.a %}
-                    <a href="{{ i }}" target="_blank">{{ i }}</a>
+                    <p>
+                        <a href="{{ i }}" target="_blank" class="response-a">{{ i }}</a>
+                    </p>
                     {% endfor %}
                 </li>
             </ul>
