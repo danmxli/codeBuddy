@@ -12,12 +12,16 @@ def search():
         ...
         # get links and question ids from query
         user_query = request.form.get("q")
+        if not user_query:
+            return render_template("search.html")
+
         ids = list_ids(user_query)
         
         answer_dict = get_answer(ids)
         print(answer_dict)
 
-        return render_template("search.html")
+        # TODO render template with answer_dict
+        return render_template("search.html", query=user_query, dictionary=answer_dict)
     return render_template("search.html")
 
 @app.route('/insights')

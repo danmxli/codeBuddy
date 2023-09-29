@@ -16,16 +16,28 @@
     </div>
 
     <!-- display response -->
-    {% if result_list %}
+    {% if dictionary %}
     <div style="margin-top: 15px;">
-        <div
-            style="background-color: #2b2626; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
-            <ul style="list-style-type: none; padding: 0; text-align: left;">
-                {% for item in result_list %}
-                <li style="font-size: 16px; padding: 8px;">
-                    <code>{{ item }}</code>
+        <div class="response-div">
+            <ul class="response-ul">
+                <li class="response-li">
+                    User asked "{{ query }}"
                 </li>
-                {% endfor %}
+                <li class="response-li">
+                    {% for i in dictionary.p %}
+                    <p>{{ i }}</p>
+                    {% endfor %}
+                </li>
+                <li class="response-li">
+                    {% for i in dictionary.code %}
+                    <code>{{ i }}</code>
+                    {% endfor %}
+                </li>
+                <li class="response-li">
+                    {% for i in dictionary.a %}
+                    <a href="{{ i }}" target="_blank">{{ i }}</a>
+                    {% endfor %}
+                </li>
             </ul>
         </div>
     </div>

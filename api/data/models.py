@@ -30,7 +30,7 @@ def extract_content(input_html):
         answer_dict['p'].append(p_tag.get_text())
 
     for a_tag in soup.find_all('a'):
-        answer_dict['a'].append(a_tag.get_text())
+        answer_dict['a'].append(a_tag.get('href'))
 
     for code_tag in soup.find_all('code'):
         answer_dict['code'].append(code_tag.get_text())
