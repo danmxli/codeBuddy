@@ -60,6 +60,12 @@ input[type="text"] {
     margin-bottom: 5px;
 }
 
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: fit-content;
+    }
+}
+
 input[type="submit"] {
     background-color: #2b2626;
     color: white;
@@ -75,8 +81,18 @@ input[type="submit"] {
     background-color: #2b2626;
     padding: 15px;
     border-radius: 10px;
+    word-wrap: break-word;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    max-width: fit-content;
+    max-width: 50rem;
+    width: 100%;
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .response-div {
+        max-width: 300px;
+        overflow-x: auto;
+    }
 }
 
 .response-ul {
@@ -106,8 +122,8 @@ input[type="submit"] {
 
 .response-code {
     display: inline-block;
-    background-color: rgb(26, 26, 26);
-    color: #e4dfdf;
+    background-color: rgb(32, 32, 32);
+    color: #ffffff;
     padding: 10px;
     border-radius: 10px;
 }

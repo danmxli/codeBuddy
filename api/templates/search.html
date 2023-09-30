@@ -27,18 +27,18 @@
                 </li>
                 {% if dictionary.p %}
                 <li class="response-li">
+                    {% for i in dictionary.p %}
                     <p class="response-p">
-                        {% for i in dictionary.p %}
-                        {{ i }}<br />
-                        {% endfor %}
+                        {{ i }}
                     </p>
+                    {% endfor %}
                 </li>
                 {% endif %}
                 {% if dictionary.code %}
                 <li class="response-li">
                     {% for i in dictionary.code %}
-                    <p class="response-code">
-                        <code>{{ i }}</code>
+                    <p>
+                        <pre><code class="response-code">{{ i }}</code></pre>
                     </p>
                     {% endfor %}
                 </li>
