@@ -1,5 +1,4 @@
-/.venv
+.venv
 /.vscode
-/api/__pycache__
-/api/data/__pycache__
+__pycache__
 /api/data/tests.py

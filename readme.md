@@ -28,13 +28,3 @@ pip install -r requirements.txt
 ```
 
 Navigate to the `api` directory, then run `flask run` to start the server.
-
-## User Interface
-
-![1696039709025](image/readme/1696039709025.png)
-
-![1696039724896](image/readme/1696039724896.png)
-
-![1696040371770](image/readme/1696040371770.png)
-
-![1696040410084](image/readme/1696040410084.png)

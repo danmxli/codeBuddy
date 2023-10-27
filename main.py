@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from data.helpers import list_ids
 from data.models import get_answer
+import os
 
 app = Flask(__name__, template_folder="templates")
 
@@ -28,3 +29,6 @@ def search():
 def insights():
     ...
     return render_template("insights.html")
+
+if __name__ == '__main__':
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
