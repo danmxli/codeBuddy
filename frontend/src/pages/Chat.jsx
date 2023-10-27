@@ -1,19 +1,9 @@
-import SplitView from "../components/SplitView";
-import UserPrompt from "../components/UserPrompt";
+import DialogInterface from "../components/DialogInterface";
 
 const Chat = () => {
     return (
         <div>
-            <SplitView
-                left={
-                    <UserPrompt />
-                }
-                right={
-                    <div>
-                        
-                    </div>
-                }
-            />
+            <DialogInterface />
         </div>
     );
 };

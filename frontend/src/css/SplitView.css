@@ -8,13 +8,10 @@
 .divider {
   height: 100%;
   width: 14px;
-  background-color: #e5e7eb;
+  background-color: #1f2937;
   display: flex;
   justify-content: center;
   transition: all .2s;
-}
-.divider:active {
-  background-color: #d1d5db;
 }
 
 .rightPane {
