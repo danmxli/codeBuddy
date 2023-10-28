@@ -52,7 +52,24 @@ def code_explain(userinput):
     # return("wip")
 
 def bug_fix(userinput):
-    return("wip")
+    response_dict = {"text": "", "links": []}
+    history = [
+        {
+            "role": "USER", "message": "I need you to find and fix bugs in my code."
+        },
+        {
+            "role": "CHATBOT", "message": "Sure, provide me with a piece of code, and my task is to find and fix bugs in it."
+        }
+    ]
+    response = co.chat(
+        model="command-nightly",
+        chat_history=history,
+        message=f"Can you tell me how to optimize my code: {userinput}",
+        temperature=0
+    )
+    response_dict['text'] = response.text
+    
+    return(response_dict)
 
 def pseudo_to_lang(userinput):
     return("wip")

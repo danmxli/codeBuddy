@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BsFillChatDotsFill } from 'react-icons/bs'
 
 const SessionLogs = ({ data }) => {
@@ -34,7 +35,7 @@ const SessionLogs = ({ data }) => {
                                 <div>
                                     {textParts.map((part, index) => {
                                         if (index % 2 === 0) {
-                                            return <p className='whitespace-breaks-spaces' key={index}>{part}</p>;
+                                            return <p className='whitespace-break-spaces' key={index}>{part}</p>;
                                         } else {
                                             return <CodeBlock key={index} code={part} />;
                                         }
@@ -42,12 +43,11 @@ const SessionLogs = ({ data }) => {
                                 </div>
                             </div>
                             <div className="mt-4">
-                                <p className="text-gray-500 font-bold">Related Links:</p>
                                 <ul className="">
 
                                     {data.response.links.map((link, index) => (
-                                        <li key={index} className='m-1'>
-                                            <div className='bg-indigo-100 hover:bg-indigo-200 p-1 rounded border border-indigo-300 text-indigo-700'>
+                                        <li key={index} className='m-3'>
+                                            <div className='bg-indigo-100 hover:bg-indigo-200 p-1 rounded border border-indigo-300 text-indigo-700 inline'>
                                                 <a href={link.url} target="_blank" rel="noopener noreferrer">
                                                     {link.title}
                                                 </a>
