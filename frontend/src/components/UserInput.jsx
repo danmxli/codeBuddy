@@ -14,7 +14,7 @@ const UserInput = ({ query, fetchQuery, handleQueryInput, handleSendQuery, updat
 
     return (
         <div className="h-screen relative bg-gray-800 overflow-scroll scrollbar-hide">
-            <div className="p-2 bg-slate-950 rounded-r-3xl">
+            <div className="p-2 bg-gray-900 rounded-r-3xl">
                 <button
                     className={`bg-gray-500 p-1 m-1 rounded ${fetchModel === 'code_explain' ? 'bg-indigo-700 text-indigo-200' : ''}`}
                     onClick={() => handleFetchModel('code_explain')}

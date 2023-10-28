@@ -2,6 +2,20 @@ import { BsFillChatDotsFill } from 'react-icons/bs'
 
 const SessionLogs = ({ data }) => {
 
+    const CodeBlock = ({ code }) => {
+        return (
+            <pre className="bg-gray-600 text-white text-sm p-3 m-3 rounded-lg overflow-scroll scrollbar-hide">
+                <code className="block">{code}</code>
+            </pre>
+        );
+    };
+
+    let textParts = []
+
+    if (data) {
+        textParts = data.response.text.split('```')
+    }
+
     return (
         <div className="h-screen bg-gray-300 overflow-scroll scrollbar-hide">
             <div className="text-gray-400">
@@ -15,9 +29,17 @@ const SessionLogs = ({ data }) => {
                         <p className="text-lg">Tip: you can resize the chat window by dragging the rightmost side.</p>
                     </div>) : (
                     <div>
-                        <div className="bg-gray-200 border border-gray-400 text-gray-600 p-4 rounded-3xl max-w-lg mx-auto my-12">
+                        <div className="bg-gray-200 border border-gray-400 text-gray-600 p-4 rounded-3xl ml-12 mr-12 my-12">
                             <div className="mb-2">
-                                <p>{data.response.text}</p>
+                                <div>
+                                    {textParts.map((part, index) => {
+                                        if (index % 2 === 0) {
+                                            return <p className='whitespace-breaks-spaces' key={index}>{part}</p>;
+                                        } else {
+                                            return <CodeBlock key={index} code={part} />;
+                                        }
+                                    })}
+                                </div>
                             </div>
                             <div className="mt-4">
                                 <p className="text-gray-500 font-bold">Related Links:</p>
