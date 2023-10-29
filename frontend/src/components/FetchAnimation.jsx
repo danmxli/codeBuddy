@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaUserAstronaut } from 'react-icons/fa'
-import { AiFillCodeSandboxCircle, AiOutlineSend } from 'react-icons/ai'
+import { AiFillCodeSandboxCircle } from 'react-icons/ai'
 
 const FetchAnimation = () => {
 
@@ -16,10 +15,8 @@ const FetchAnimation = () => {
     return (
         <div className="flex justify-center items-center h-screen">
             <div className="w-full p-4 bg-gray-200 border border-gray-400 p-4 rounded-3xl ml-12 mr-12 my-12">
-                <div className='mt-3 inline-flex text-7xl gap-4 animate-pulse mb-10'>
+                <div className='inline-flex text-8xl animate-spin'>
                     <AiFillCodeSandboxCircle />
-                    <AiOutlineSend />
-                    <FaUserAstronaut />
                 </div>
                 <ColorfulDiv                    
                     active={currentImg === 0}
