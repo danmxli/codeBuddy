@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { BsFillChatDotsFill } from 'react-icons/bs'
+import FetchAnimation from './FetchAnimation';
 
-const SessionLogs = ({ data }) => {
+const SessionLogs = ({ data, isFetching }) => {
 
     const CodeBlock = ({ code }) => {
         return (
@@ -22,12 +23,18 @@ const SessionLogs = ({ data }) => {
             <div className="text-gray-400">
                 {data === null ? (
                     <div className='text-center'>
-                        <div className='pt-40 mb-3 inline-flex text-9xl'>
-                            <BsFillChatDotsFill />
-                        </div>
-                        <h1 className="text-3xl">New session logs</h1>
-                        <p className="text-xl">Type your query in coduitCode chat on the left.</p>
-                        <p className="text-lg">Tip: you can resize the chat window by dragging the rightmost side.</p>
+                        {isFetching ? (
+                            <FetchAnimation />
+                        ) : (
+                            <div>
+                                <div className='pt-40 mb-3 inline-flex text-9xl'>
+                                    <BsFillChatDotsFill />
+                                </div>
+                                <h1 className="text-3xl">New session logs</h1>
+                                <p className="text-xl">Type your query in coduitCode chat on the left.</p>
+                                <p className="text-lg">Tip: you can resize the chat window by dragging the rightmost side.</p>
+                            </div>)}
+
                     </div>) : (
                     <div>
                         <div className="bg-gray-200 border border-gray-400 text-gray-600 p-4 rounded-3xl ml-12 mr-12 my-12">

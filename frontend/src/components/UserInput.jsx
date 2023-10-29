@@ -6,7 +6,7 @@ import { SiGoogleoptimize } from 'react-icons/si'
 import SubmitCode from "./SubmitCode";
 
 const UserInput = ({ query, fetchQuery, handleQueryInput, handleSendQuery, updateFetchModel }) => {
-    const [fetchModel, setFetchModel] = useState('code_explain');
+    const [fetchModel, setFetchModel] = useState('bug_fix');
     const handleFetchModel = (model) => {
         setFetchModel(model)
         updateFetchModel(model)
@@ -15,14 +15,6 @@ const UserInput = ({ query, fetchQuery, handleQueryInput, handleSendQuery, updat
     return (
         <div className="h-screen relative bg-gray-800 overflow-scroll scrollbar-hide">
             <div className="p-2 bg-gray-900 rounded-r-3xl">
-                <button
-                    className={`bg-gray-500 p-1 m-1 rounded ${fetchModel === 'code_explain' ? 'bg-indigo-700 text-indigo-200' : ''}`}
-                    onClick={() => handleFetchModel('code_explain')}
-                >
-                    <div className='inline-flex gap-1'>
-                        <FaChalkboardTeacher className='text-lg' />Code Explainer
-                    </div>
-                </button>
                 <button
                     className={`bg-gray-500 p-1 m-1 rounded ${fetchModel === 'bug_fix' ? 'bg-indigo-700 text-indigo-200' : ''}`}
                     onClick={() => handleFetchModel('bug_fix')}
@@ -37,6 +29,14 @@ const UserInput = ({ query, fetchQuery, handleQueryInput, handleSendQuery, updat
                 >
                     <div className='inline-flex gap-1'>
                         <BiLogoPython className='text-lg' />Pseudocode to Python
+                    </div>
+                </button>
+                <button
+                    className={`bg-gray-500 p-1 m-1 rounded ${fetchModel === 'code_explain' ? 'bg-indigo-700 text-indigo-200' : ''}`}
+                    onClick={() => handleFetchModel('code_explain')}
+                >
+                    <div className='inline-flex gap-1'>
+                        <FaChalkboardTeacher className='text-lg' />Code Explainer
                     </div>
                 </button>
                 <button

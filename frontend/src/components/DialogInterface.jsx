@@ -56,7 +56,7 @@ const DialogInterface = () => {
                     <UserInput query={query} fetchQuery={fetchQuery} handleQueryInput={handleQueryInput} handleSendQuery={handleSendQuery} updateFetchModel={updateFetchModel} />
                 }
                 right={
-                    <SessionLogs data={responseData}/>
+                    <SessionLogs data={responseData} isFetching={fetchQuery}/>
                 }
             />
         </div>
