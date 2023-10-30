@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaChalkboardTeacher } from 'react-icons/fa'
-import { AiFillCodeSandboxCircle, AiOutlineSend, AiFillBug } from 'react-icons/ai'
+import { AiFillBug } from 'react-icons/ai'
 import { BiLogoPython } from 'react-icons/bi'
 import { SiGoogleoptimize } from 'react-icons/si'
 import SubmitCode from "./SubmitCode";
@@ -28,7 +28,7 @@ const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetc
                     onClick={() => handleFetchModel('pseudo_to_lang')}
                 >
                     <div className='inline-flex gap-1'>
-                        <BiLogoPython className='text-lg' />Pseudocode to Python
+                        <BiLogoPython className='text-lg' />Pseudocode to Language
                     </div>
                 </button>
                 <button
@@ -52,23 +52,10 @@ const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetc
                 <SubmitCode
                     value={query}
                     updateValue={updateValue}
+                    handleSendQuery={handleSendQuery}
+                    isFetchingQuery={fetchQuery}
                 />
             </div>
-            <button
-                className="p-2 w-40 hover:w-64 text-center text-indigo-600 bg-neutral-900 hover:bg-neutral-950 inline-block rounded-r-3xl duration-500"
-                onClick={handleSendQuery}
-            >
-                {fetchQuery ? (
-                    <div className="inline-flex gap-3">
-                        <AiFillCodeSandboxCircle className="animate-spin text-2xl" />generating...
-                    </div>
-                ) : (
-                    <div className="inline-flex gap-3">
-                        <AiOutlineSend className="text-2xl" />
-                    </div>
-                )}
-
-            </button>
         </div>
     )
 }

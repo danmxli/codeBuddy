@@ -40,12 +40,16 @@ const SessionLogs = ({ data, isFetching }) => {
                                         <p className='mr-32 ml-32'>Select a model above. The assistant will evaluate your response based on the code you supply and the details of your query.</p>
 
                                     </div>
-                                    <div className='mb-3 inline-flex text-9xl'>
-                                        <BsFillChatDotsFill />
+
+                                    <div className="bg-gray-200 border border-gray-400 text-gray-400 p-4 rounded-3xl ml-12 mr-12 my-12">
+                                        <div className='mb-3 inline-flex text-9xl'>
+                                            <BsFillChatDotsFill />
+                                        </div>
+                                        <h1 className="text-3xl">New session logs</h1>
+                                        <p className="text-xl">Type your query in coduitCode chat on the left.</p>
+                                        <p className="text-lg">Tip: you can resize the chat window by dragging the rightmost side.</p>
                                     </div>
-                                    <h1 className="text-3xl">New session logs</h1>
-                                    <p className="text-xl">Type your query in coduitCode chat on the left.</p>
-                                    <p className="text-lg">Tip: you can resize the chat window by dragging the rightmost side.</p>
+
                                 </div>
 
                             </div>) : (
