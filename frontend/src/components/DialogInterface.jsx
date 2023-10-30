@@ -9,9 +9,10 @@ const DialogInterface = () => {
     const [fetchQuery, setFetchQuery] = useState(false)
     const [fetchModel, setFetchModel] = useState('code_explain')
 
-    const handleQueryInput = (e) => {
-        setQuery(e.target.value)
+    const updateValue = (newValue) => {
+        setQuery(newValue)
     }
+
     const updateFetchModel = (newModel) => {
         setFetchModel(newModel)
     }
@@ -24,6 +25,7 @@ const DialogInterface = () => {
         }
         setFetchQuery(true)
         console.log(fetchModel)
+        console.log(query)
 
         try {
             const response = await fetch('https://codebuddy-production.up.railway.app/generate', {
@@ -53,7 +55,7 @@ const DialogInterface = () => {
         <div>
             <SplitView
                 left={
-                    <UserInput query={query} fetchQuery={fetchQuery} handleQueryInput={handleQueryInput} handleSendQuery={handleSendQuery} updateFetchModel={updateFetchModel} />
+                    <UserInput query={query} fetchQuery={fetchQuery} updateValue={updateValue} handleSendQuery={handleSendQuery} updateFetchModel={updateFetchModel} />
                 }
                 right={
                     <SessionLogs data={responseData} isFetching={fetchQuery}/>

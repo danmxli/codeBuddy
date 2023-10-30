@@ -8,7 +8,7 @@
 .divider {
   height: 100%;
   width: 14px;
-  background-color: #1f2937;
+  background-color: #262626;
   display: flex;
   justify-content: center;
   transition: all .2s;

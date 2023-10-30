@@ -8,10 +8,10 @@ const DisplayAbout = () => {
                     <p className='mt-3 mb-2'>
                         Leverage conduitCode to debug, learn, and improve your code. Stand atop the mountain of giants and produce scalable, reliable products!
                     </p>
-                    <a href="https://github.com/danmxli/Conduify" className="p-1 bg-emerald-100 hover:bg-emerald-200 border border-emerald-500 rounded">conduitCode Beta Version 1.0.0</a>
+                    <a href="https://github.com/danmxli/codeBuddy" className="p-1 bg-emerald-100 hover:bg-emerald-200 border border-emerald-500 rounded">conduitCode Beta Version 1.0.0</a>
                 </div>
                 <div className="bg-gray-100 p-3 rounded-lg">
-                    <a href="https://github.com/danmxli/conduify" className="">
+                    <a href="https://www.conduify.com/">
                         <div className="p-1 bg-indigo-100 hover:bg-indigo-200 border border-indigo-500 rounded">conduitCode is a service for Conduify - check out the project!</div>
                     </a>
                     <h1 className="text-xl mt-1">Efficient and User Friendly. ⚡</h1>

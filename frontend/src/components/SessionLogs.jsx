@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { BsFillChatDotsFill } from 'react-icons/bs'
+import { FaUserAstronaut } from 'react-icons/fa'
+import { AiOutlineSend, AiFillCodeSandboxCircle } from 'react-icons/ai'
 import FetchAnimation from './FetchAnimation';
 
 const SessionLogs = ({ data, isFetching }) => {
@@ -27,9 +29,18 @@ const SessionLogs = ({ data, isFetching }) => {
                     <>
                         {data === null ? (
                             <div className='text-center'>
-
                                 <div>
-                                    <div className='pt-40 mb-3 inline-flex text-9xl'>
+                                    <div className="text-center mt-12 mb-8">
+                                        <p className='text-2xl'>Welcome to conduitCode chat!</p>
+                                        <div className='mt-3 inline-flex text-5xl gap-4'>
+                                            <AiFillCodeSandboxCircle />
+                                            <AiOutlineSend />
+                                            <FaUserAstronaut />
+                                        </div>
+                                        <p className='mr-32 ml-32'>Select a model above. The assistant will evaluate your response based on the code you supply and the details of your query.</p>
+
+                                    </div>
+                                    <div className='mb-3 inline-flex text-9xl'>
                                         <BsFillChatDotsFill />
                                     </div>
                                     <h1 className="text-3xl">New session logs</h1>

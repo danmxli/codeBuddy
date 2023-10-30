@@ -1,14 +1,20 @@
-const SubmitCode = ({ value, onChange }) => {
+import Editor from '@monaco-editor/react';
+
+const SubmitCode = ({ value, updateValue }) => {
+    const handleEditorChange = (newValue) => {
+        updateValue(newValue);
+    };
+
     return (
-        <form>
-            <div className="w-full px-4 py-4 rounded-r-3xl bg-gray-900">
-                <textarea id="comment" rows="4" className="w-full h-64 px-0 focus:outline-none text-sm bg-gray-900 focus:ring-0 text-white placeholder-gray-400"
-                    required
-                    value={value}
-                    onChange={onChange}
-                ></textarea>
-            </div>
-        </form>
+        <div className="">
+            <Editor
+                height="500px"
+                defaultLanguage="python"
+                defaultValue={value}
+                theme='vs-dark'
+                onChange={handleEditorChange}
+            />
+        </div>
     );
 };
 
