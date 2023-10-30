@@ -1,16 +1,23 @@
-import { useState } from 'react';
+import Editor from '@monaco-editor/react';
 import { BsFillChatDotsFill } from 'react-icons/bs'
 import { FaUserAstronaut } from 'react-icons/fa'
 import { AiOutlineSend, AiFillCodeSandboxCircle } from 'react-icons/ai'
 import FetchAnimation from './FetchAnimation';
 
-const SessionLogs = ({ data, isFetching }) => {
+const SessionLogs = ({ data, isFetching, language }) => {
 
     const CodeBlock = ({ code }) => {
+        let window = "500px"
+        if(code.length < 300) {
+            window = "200px"
+        }
         return (
-            <pre className="bg-gray-600 text-white text-sm p-3 m-3 rounded-lg overflow-scroll scrollbar-hide">
-                <code className="block">{code}</code>
-            </pre>
+            <Editor
+                defaultLanguage={language}
+                height={window}
+                defaultValue={code}
+                theme='vs-dark'
+            />
         );
     };
 
@@ -61,7 +68,7 @@ const SessionLogs = ({ data, isFetching }) => {
                                                 if (index % 2 === 0) {
                                                     return <p className='whitespace-break-spaces' key={index}>{part}</p>;
                                                 } else {
-                                                    return <CodeBlock key={index} code={part} />;
+                                                    return (<CodeBlock key={index} code={part} />);
                                                 }
                                             })}
                                         </div>

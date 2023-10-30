@@ -7,21 +7,21 @@ load_dotenv('.env')
 co = cohere.Client(os.getenv('COHERE_KEY'))
 
 # return response
-def generate_response(query, model):
+def generate_response(query, model, programming_language):
     ...
     if model == 'code_explain':
-        return code_explain(query)
+        return code_explain(query, programming_language)
     elif model == 'bug_fix':
-        return bug_fix(query)
+        return bug_fix(query, programming_language)
     elif model == 'pseudo_to_lang':
-        return pseudo_to_lang(query)
+        return pseudo_to_lang(query, programming_language)
     elif model == 'calc_complexity':
-        return calc_complexity(query)
+        return calc_complexity(query, programming_language)
     else:
         return('')
 
 # helper functions, each takes in query and returns response
-def code_explain(userinput):
+def code_explain(userinput, language):
     response_dict = {"text": "", "links": []}
     history = [
         {
@@ -35,7 +35,7 @@ def code_explain(userinput):
     response = co.chat(
         model="command-nightly",
         chat_history=history,
-        message=f"Can you explain my code: {userinput}",
+        message=f"Can you explain my {language} code: {userinput}",
         connectors=[{"id": "web-search"}],
         temperature=0
     )
@@ -53,7 +53,7 @@ def code_explain(userinput):
     return(response_dict)
     # return("wip")
 
-def bug_fix(userinput):
+def bug_fix(userinput, language):
     response_dict = {"text": "", "links": []}
     history = [
         {
@@ -66,14 +66,14 @@ def bug_fix(userinput):
     response = co.chat(
         model="command-nightly",
         chat_history=history,
-        message=f"Can you tell me how to optimize my code: {userinput}",
+        message=f"Can you tell me how to optimize my {language} code: {userinput}",
         temperature=0
     )
     response_dict['text'] = response.text
     
     return(response_dict)
 
-def pseudo_to_lang(userinput):
+def pseudo_to_lang(userinput, language):
     response_dict = {"text": "", "links": []}
     history = [
         {
@@ -86,13 +86,13 @@ def pseudo_to_lang(userinput):
     response = co.chat(
         model="command-nightly",
         chat_history=history,
-        message=f"Convert my pseudocode to python code: {userinput}",
-        temperature=0
+        message=f"Convert my pseudocode to {language} code: {userinput}",
+        temperature=0.7
     )
     response_dict['text'] = response.text
     return(response_dict)
 
-def calc_complexity(userinput):
+def calc_complexity(userinput, language):
     response_dict = {"text": "", "links": []}
     history = [
         {
@@ -105,7 +105,7 @@ def calc_complexity(userinput):
     response = co.chat(
         model="command-nightly",
         chat_history=history,
-        message=f"Calculate the time complexity of my code: {userinput}",
+        message=f"Calculate the time complexity of my {language} code: {userinput}",
         connectors=[{"id": "web-search"}],
         temperature=0
     )

@@ -5,7 +5,7 @@ import { BiLogoPython } from 'react-icons/bi'
 import { SiGoogleoptimize } from 'react-icons/si'
 import SubmitCode from "./SubmitCode";
 
-const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetchModel }) => {
+const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetchModel, language, updateProgrammingLanguage }) => {
     const [fetchModel, setFetchModel] = useState('bug_fix');
     const handleFetchModel = (model) => {
         setFetchModel(model)
@@ -52,6 +52,8 @@ const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetc
                 <SubmitCode
                     value={query}
                     updateValue={updateValue}
+                    language={language}
+                    updateProgrammingLanguage={updateProgrammingLanguage}
                     handleSendQuery={handleSendQuery}
                     isFetchingQuery={fetchQuery}
                 />

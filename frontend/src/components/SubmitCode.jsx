@@ -2,10 +2,9 @@ import Editor from '@monaco-editor/react';
 import { AiFillCodeSandboxCircle, AiOutlineSend } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
 
-const SubmitCode = ({ value, updateValue, handleSendQuery, isFetchingQuery }) => {
-    const [lang, setLang] = useState('python')
+const SubmitCode = ({ value, updateValue, language, updateProgrammingLanguage, handleSendQuery, isFetchingQuery }) => {
     const handleLangChange = (e) => {
-        setLang(e.target.value)
+        updateProgrammingLanguage(e.target.value)
     }
 
     const handleEditorChange = (newValue) => {
@@ -16,7 +15,7 @@ const SubmitCode = ({ value, updateValue, handleSendQuery, isFetchingQuery }) =>
         <div className="">
             <Editor
                 height="500px"
-                defaultLanguage={lang}
+                defaultLanguage={language}
                 defaultValue={value}
                 theme='vs-dark'
                 onChange={handleEditorChange}
@@ -46,7 +45,7 @@ const SubmitCode = ({ value, updateValue, handleSendQuery, isFetchingQuery }) =>
                         </div>
                         <select
                             className='p-0.5 pl-2 pr-2 text-indigo-300 bg-indigo-950 border border-indigo-500 rounded-3xl'
-                            value={lang}
+                            value={language}
                             onChange={handleLangChange}
                         >
                             <option value='python'>Python</option>

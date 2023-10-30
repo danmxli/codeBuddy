@@ -8,6 +8,7 @@ const DialogInterface = () => {
     const [responseData, setResponseData] = useState(null)
     const [fetchQuery, setFetchQuery] = useState(false)
     const [fetchModel, setFetchModel] = useState('code_explain')
+    const [programmingLanguage, setProgrammingLanguage] = useState('python')
 
     const updateValue = (newValue) => {
         setQuery(newValue)
@@ -17,15 +18,21 @@ const DialogInterface = () => {
         setFetchModel(newModel)
     }
 
+    const updateProgrammingLanguage = (newLang) => {
+        setProgrammingLanguage(newLang)
+    }
+
     const handleSendQuery = async () => {
         if (query.trim() === '') return;
         const requestBody = {
             query: query,
-            model: fetchModel
+            model: fetchModel,
+            programming_language: programmingLanguage
         }
         setFetchQuery(true)
+        console.log(programmingLanguage)
         console.log(fetchModel)
-        console.log(query)
+        
 
         try {
             const response = await fetch('https://codebuddy-production.up.railway.app/generate', {
@@ -55,10 +62,10 @@ const DialogInterface = () => {
         <div>
             <SplitView
                 left={
-                    <UserInput query={query} fetchQuery={fetchQuery} updateValue={updateValue} handleSendQuery={handleSendQuery} updateFetchModel={updateFetchModel} />
+                    <UserInput query={query} fetchQuery={fetchQuery} updateValue={updateValue} handleSendQuery={handleSendQuery} updateFetchModel={updateFetchModel} language={programmingLanguage} updateProgrammingLanguage={updateProgrammingLanguage} />
                 }
                 right={
-                    <SessionLogs data={responseData} isFetching={fetchQuery}/>
+                    <SessionLogs data={responseData} isFetching={fetchQuery} language={programmingLanguage}/>
                 }
             />
         </div>
