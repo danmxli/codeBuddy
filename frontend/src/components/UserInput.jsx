@@ -16,7 +16,7 @@ const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetc
         <div className="h-screen relative bg-neutral-800 overflow-scroll scrollbar-hide">
             <div className="p-2 bg-neutral-900 rounded-r-3xl">
                 <button
-                    className={`bg-neutral-500 text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'bug_fix' ? 'bg-black' : ''}`}
+                    className={`text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'bug_fix' ? 'bg-black' : ''}`}
                     onClick={() => handleFetchModel('bug_fix')}
                 >
                     <div className='inline-flex gap-1'>
@@ -24,7 +24,7 @@ const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetc
                     </div>
                 </button>
                 <button
-                    className={`bg-neutral-500 text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'pseudo_to_lang' ? 'bg-black' : ''}`}
+                    className={`text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'pseudo_to_lang' ? 'bg-black' : ''}`}
                     onClick={() => handleFetchModel('pseudo_to_lang')}
                 >
                     <div className='inline-flex gap-1'>
@@ -32,7 +32,7 @@ const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetc
                     </div>
                 </button>
                 <button
-                    className={`bg-neutral-500 text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'code_explain' ? 'bg-black' : ''}`}
+                    className={`text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'code_explain' ? 'bg-black' : ''}`}
                     onClick={() => handleFetchModel('code_explain')}
                 >
                     <div className='inline-flex gap-1'>
@@ -40,7 +40,7 @@ const UserInput = ({ query, fetchQuery, updateValue, handleSendQuery, updateFetc
                     </div>
                 </button>
                 <button
-                    className={`bg-neutral-500 text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'calc_complexity' ? 'bg-black' : ''}`}
+                    className={`text-neutral-300 font-semibold p-1 m-1 rounded ${fetchModel === 'calc_complexity' ? 'bg-black' : ''}`}
                     onClick={() => handleFetchModel('calc_complexity')}
                 >
                     <div className='inline-flex gap-1'>
