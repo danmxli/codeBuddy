@@ -1,6 +1,7 @@
 import { useState } from "react"
 import UserType from "../components/registration/UserType"
 import UserDetails from "../components/registration/UserDetails"
+import { DescriptionCard, UserOnboard } from "../components/registration/RegistrationCards"
 
 const Portal = () => {
     // default user data
@@ -30,16 +31,9 @@ const Portal = () => {
             </div>
             <div className="col-span-1 w-full h-screen flex items-center justify-center">
                 {phase === 'userType' ? (
-                    <div className="m-8 p-8 max-w-xs bg-indigo-500 text-white rounded-3xl shadow-lg">
-                        <h1 className="text-3xl">conduitCode accelerates productivity.</h1>
-                        <h2 className="mb-6">Your performance and time are deeply valued. The optimal balance between the two is what our software looks for.</h2>
-                        <h1 className="text-3xl">A refreshing user interface.</h1>
-                        <h2>Our intuitive design gives you the confidence and enjoyment you need to move forward with your tasks.</h2>
-                    </div>
+                    <DescriptionCard />
                 ) : (
-                    <div className="m-8 p-8 max-w-xs bg-indigo-500 text-white rounded-3xl shadow-lg">
-                        <h1 className="text-3xl">Welcome aboard, {name}!</h1>
-                    </div>
+                    <UserOnboard name={name} />
                 )}
             </div>
         </div>

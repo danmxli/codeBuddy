@@ -1,8 +1,6 @@
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom";
 
 const UserType = ({ name, updateName, user, updateUserType, updatePhase }) => {
-    const navigate = useNavigate()
 
     const handleUserChange = (e) => {
         updateName(e.target.value);
@@ -54,16 +52,11 @@ const UserType = ({ name, updateName, user, updateUserType, updatePhase }) => {
                 </ul>
             </>
             <div className="inline-flex gap-3 mt-3">
+                <a className="bg-gray-950 text-white p-2 rounded" href="https://www.conduify.com/">
+                    Back to Conduify
+                </a>
                 <button
-                    className="bg-gray-950 text-white p-2 rounded"
-                    onClick={() => {
-                        navigate('/')
-                    }}
-                >
-                    Dashboard
-                </button>
-                <button
-                    className={`bg-indigo-500 text-white p-2 pl-12 pr-12 rounded ${name === "" ? "bg-indigo-200 cursor-not-allowed" : ""}`}
+                    className={`bg-indigo-500 text-white p-2 pl-20 pr-20 rounded ${name === "" ? "cursor-not-allowed" : ""}`}
                     onClick={() => {
                         if (name !== "") {
                             updatePhase('userDetails')
@@ -73,7 +66,6 @@ const UserType = ({ name, updateName, user, updateUserType, updatePhase }) => {
                     Next
                 </button>
             </div>
-
         </motion.div>
     )
 }

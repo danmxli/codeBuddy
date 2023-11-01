@@ -21,7 +21,7 @@ const UserDetails = ({ updatePhase }) => {
 
             <div className="inline-flex gap-3 mt-3">
                 <button
-                    className="bg-indigo-900 text-white p-2 rounded"
+                    className="bg-black text-white p-2 pl-12 pr-12 rounded"
                     onClick={() => {
                         updatePhase('userType')
                     }}

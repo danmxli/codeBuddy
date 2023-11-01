@@ -6,8 +6,7 @@ import Chat from './pages/Chat';
 import {
   ClerkProvider,
   SignedIn,
-  SignedOut,
-  RedirectToSignIn
+  SignedOut
 } from "@clerk/clerk-react";
 
 if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
