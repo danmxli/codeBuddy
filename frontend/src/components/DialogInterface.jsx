@@ -35,7 +35,7 @@ const DialogInterface = () => {
         
 
         try {
-            const response = await fetch('https://codebuddy-production.up.railway.app/generate', {
+            const response = await fetch('https://codebuddy-production.up.railway.app/dummy', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

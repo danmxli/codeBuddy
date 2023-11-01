@@ -1,4 +1,9 @@
+import { UserButton } from "@clerk/clerk-react"
+import { useNavigate } from "react-router-dom"
+
 const DisplayAbout = () => {
+    const navigate = useNavigate()
+
     return (
         <div className="flex items-center justify-center h-screen">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 sm:p-10">
@@ -23,10 +28,15 @@ const DisplayAbout = () => {
                         <div className="p-1 bg-gray-50 hover:bg-gray-200 border border-gray-500 rounded">Responsive chat API from Cohere</div>
                     </a>
                 </div>
-                <div className="bg-gray-100 p-3 rounded-lg text-center">
-                    <a href='https://www.linkedin.com/in/danli591/' className='text-indigo-500 hover:text-indigo-600'>
-                        <h1 className="text-lg font-bold">Reach out to the Creator</h1>
-                    </a>
+                <div className="bg-gray-100 p-3 rounded-lg text-center inline-flex justify-center items-center gap-2">
+                    <div className='text-sm text-indigo-800 bg-indigo-100 p-1 border border-indigo-300 rounded'>Sign-in Success!</div>
+                    <UserButton />
+                    <button
+                        className='text-sm text-stone-600 bg-stone-100 hover:bg-stone-200 p-1 border border-stone-400 rounded'
+                        onClick={() => {
+                            navigate('/')
+                        }}
+                    >Go to Landing Page</button>
                 </div>
             </div>
         </div>

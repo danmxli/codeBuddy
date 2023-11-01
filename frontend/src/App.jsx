@@ -1,26 +1,52 @@
-import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home'
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Portal from './pages/Portal';
 import Chat from './pages/Chat';
 
-function App() {
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn
+} from "@clerk/clerk-react";
 
-  const pages = [
-    {
-      url: '/',
-      component: <Home />
-    },
-    {
-      url: '/chat',
-      component: <Chat />
-    }
-  ]
+if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
+  throw new Error("Missing Publishable Key")
+}
+
+const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
+
+function App() {
+  const navigate = useNavigate()
 
   return (
-    <Routes>
-      {pages.map((pageData, index) => (
-        <Route key={index} path={pageData.url} element={pageData.component} />
-      ))}
-    </Routes>
+    <ClerkProvider
+      publishableKey={clerkPubKey}
+      navigate={(to) => navigate(to)}
+    >
+      <Routes>
+        <Route path='/' element={
+          <>
+            <SignedIn>
+              <Home />
+            </SignedIn>
+            <SignedOut>
+              <Portal />
+            </SignedOut>
+          </>
+        } />
+        <Route path='/chat' element={
+          <>
+            <SignedIn>
+              <Chat />
+            </SignedIn>
+            <SignedOut>
+              <Portal />
+            </SignedOut>
+          </>
+        } />
+      </Routes>
+    </ClerkProvider>
   )
 }
 
