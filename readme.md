@@ -8,6 +8,7 @@ Response to user query can provide paragraph explanation, code snippets, and res
 
 Resources:
 
+* [Cohere](https://cohere.com/)
 * [Stack Exchange API](https://api.stackexchange.com/)
 * [Stack Overflow](https://stackoverflow.com/)
 
@@ -21,10 +22,24 @@ Clone the repository:
 https://github.com/danmxli/codeBuddy.git
 ```
 
+### backend
+
 Create a virtual environment (recommended) and install python modules from requirements.txt:
 
 ```
 pip install -r requirements.txt
 ```
 
-Navigate to the `api` directory, then run `flask run` to start the server.
+Run `python main.py` to start the server.
+
+### frontend
+
+install packages and start.
+
+```
+npm install
+```
+
+```
+npm run dev
+```
